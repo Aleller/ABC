@@ -1,4 +1,4 @@
-%½«½á¹û´òÓ¡µ½ÎÄ¼ş
+%å°†ç»“æœæ‰“å°åˆ°æ–‡ä»¶
 set(0,'diaryFile','save.txt')
 diary
 disp('-----------------------------------------');
@@ -9,11 +9,11 @@ disp(minute(now));
 disp('second = ');
 disp(second(now));
 
-%Çå¿ÕÊä³ö´°¿Ú
+%æ¸…ç©ºè¾“å‡ºçª—å£
 clc;
-%Çå¿Õ±äÁ¿
+%æ¸…ç©ºå˜é‡
 clear;
-%¹Ø±ÕËùÓĞfigure´°¿Ú
+%å…³é—­æ‰€æœ‰figureçª—å£
 close all;
 format long;
 format compact;
@@ -21,10 +21,10 @@ tic
 
 %parpool(2)
 
-%¶¨ÒåÎÊÌâµÄÎ¬Êı
+%å®šä¹‰é—®é¢˜çš„ç»´æ•°
 n = 30;
 
-disp('²âÊÔ´ÎÊı');
+disp('æµ‹è¯•æ¬¡æ•°');
 totalTestBenchmarkTime = 30
 
 for problem = 1
@@ -32,10 +32,10 @@ for problem = 1
     benchmarkResult = ones(1,30);
     benchmarkResultSum = 0;
     for testBenchmarkTime = 1:totalTestBenchmarkTime
-        %¶¨ÒåÃÛÔ´ÊıÁ¿
+        %å®šä¹‰èœœæºæ•°é‡
         foodCount = 25;
 
-        %¶¨Òå·äÈº£¬1´ú±í²ÉÃÛ·ä£¬2´ú±í¹Û²ì·ä£¬3´ú±íÕì²é·ä
+        %å®šä¹‰èœ‚ç¾¤ï¼Œ1ä»£è¡¨é‡‡èœœèœ‚ï¼Œ2ä»£è¡¨è§‚å¯Ÿèœ‚ï¼Œ3ä»£è¡¨ä¾¦æŸ¥èœ‚
         beeCount = 50;
         beeColony = ones(1,beeCount);
         for i = 26:45
@@ -45,10 +45,10 @@ for problem = 1
             beeColony(1,i) = 3;
         end
 
-        %¶¨Òåµü´ú´ÎÊı
+        %å®šä¹‰è¿­ä»£æ¬¡æ•°
         totalTime = 3000;
 
-        %²úÉú³õÊ¼½â
+        %äº§ç”Ÿåˆå§‹è§£
         switch problem
             case 1
                 lu = [-100 * ones(1, n); 100 * ones(1, n)];
@@ -90,32 +90,32 @@ for problem = 1
                 lu = [-50* ones(1, n); 50 * ones(1, n)];
                 A = []; a = []; alpha = []; b = []; o=[]; M=[];
         end
-        rand('state', sum(100 * clock));%ÉèÖÃËæ»úÊıÁ÷µÄ×´Ì¬
+        rand('state', sum(100 * clock));%è®¾ç½®éšæœºæ•°æµçš„çŠ¶æ€
         VRmin = repmat(lu(1, :), foodCount, 1);
         VRmax = repmat(lu(2, :), foodCount, 1);
-        solution = VRmin + (VRmax - VRmin) .* rand(foodCount, n);%²úÉú³õÊ¼½â
+        solution = VRmin + (VRmax - VRmin) .* rand(foodCount, n);%äº§ç”Ÿåˆå§‹è§£
 
-        %Ã¿¸öÃÛÔ´£¨½â£©µÄ¼ÆÊıÊı×é
+        %æ¯ä¸ªèœœæºï¼ˆè§£ï¼‰çš„è®¡æ•°æ•°ç»„
         trial = ones(1,foodCount)-1;
 
-        %Ã¿¸öÃÛÔ´£¨½â£©µÄÎ´¸ÄÉÆ¼ÆÊıÉÏÏŞ
+        %æ¯ä¸ªèœœæºï¼ˆè§£ï¼‰çš„æœªæ”¹å–„è®¡æ•°ä¸Šé™
         limit = 3;
 
-        %Ã¿¸öÃÛÔ´£¨½â£©µÄÊÊÓ¦¶ÈÊı×é
+        %æ¯ä¸ªèœœæºï¼ˆè§£ï¼‰çš„é€‚åº”åº¦æ•°ç»„
         fitness = ones(1,foodCount);
 
-        %ÀúÊ·×îºÃµÄÃÛÔ´£¨½â£©¼°ÆäÊÊÓ¦¶È
+        %å†å²æœ€å¥½çš„èœœæºï¼ˆè§£ï¼‰åŠå…¶é€‚åº”åº¦
         bestSolution = ones(1,n);
         bestFitness = 0;
 
-        %¿ªÊ¼µü´ú
+        %å¼€å§‹è¿­ä»£
         for time= 1:totalTime
             for bee = 1:beeCount
                 switch beeColony(bee)
-                    %¶ÔÓÚ²ÉÃÛ·ä
+                    %å¯¹äºé‡‡èœœèœ‚
                     case 1
                         newSolution = ones(1,n);
-                        %Éú³ÉĞÂµÄÃÛÔ´
+                        %ç”Ÿæˆæ–°çš„èœœæº
                         for j = 1:n
                             PHI = rand();
                             if(rand()>0.5)
@@ -127,7 +127,7 @@ for problem = 1
                             end
                             newSolution(j) = solution(bee,j) + PHI * ( solution(bee,j) - solution(k,j) );
                         end
-                        %ÆÀ¹À¾ÉµÄºÍĞÂµÄÃÛÔ´£¬Ì°ĞÄÑ¡Ôñ
+                        %è¯„ä¼°æ—§çš„å’Œæ–°çš„èœœæºï¼Œè´ªå¿ƒé€‰æ‹©
                         result = benchmark_func(solution(bee,1:n), problem, o, A, M, a, alpha, b);
                         newResult = benchmark_func(newSolution, problem, o, A, M, a, alpha, b);
                         if result>=0
@@ -151,10 +151,10 @@ for problem = 1
                             bestFitness = fitness(bee);
                             bestSolution = solution(bee,1:n);
                         end
-                    %¶ÔÓ¦Õâ¸öÃÛÔ´£¨½â£©µÄÃÛ·äÊÇ¹Û²ì·ä
-                    %¶ÔËùÓĞÃÛÔ´£¨½â£©µÄÊÊÓ¦¶È²ÉÓÃÂÖÅÌ¶ÄµÄ·½Ê½£¬Ëæ»úÑ¡ÖĞÒ»¸öÃÛÔ´£¨½â£©£¬¶ÔÑ¡ÖĞµÄÃÛÔ´×öºÍ²ÉÃÛ·äÏàÍ¬µÄÊÂÇé
+                    %å¯¹åº”è¿™ä¸ªèœœæºï¼ˆè§£ï¼‰çš„èœœèœ‚æ˜¯è§‚å¯Ÿèœ‚
+                    %å¯¹æ‰€æœ‰èœœæºï¼ˆè§£ï¼‰çš„é€‚åº”åº¦é‡‡ç”¨è½®ç›˜èµŒçš„æ–¹å¼ï¼Œéšæœºé€‰ä¸­ä¸€ä¸ªèœœæºï¼ˆè§£ï¼‰ï¼Œå¯¹é€‰ä¸­çš„èœœæºåšå’Œé‡‡èœœèœ‚ç›¸åŒçš„äº‹æƒ…
                     case 2
-                        %ÂÖÅÌ¶Ä
+                        %è½®ç›˜èµŒ
                         roulette = ones(1,foodCount);
                         rouletteSum = 0;
                         for i = 1:foodCount
@@ -173,8 +173,8 @@ for problem = 1
                             end
                             break;
                         end
-                        %ÏÖÔÚiµÄÖµ¼´ÎªÂÖÅÌ¶ÄÑ¡ÖĞµÄÃÛÔ´£¨½â£©£¬½ÓÏÂÀ´¶ÔÕâ¸öÃÛÔ´£¨½â£©½øĞĞ²Ù×÷
-                        %Éú³ÉĞÂµÄÃÛÔ´
+                        %ç°åœ¨içš„å€¼å³ä¸ºè½®ç›˜èµŒé€‰ä¸­çš„èœœæºï¼ˆè§£ï¼‰ï¼Œæ¥ä¸‹æ¥å¯¹è¿™ä¸ªèœœæºï¼ˆè§£ï¼‰è¿›è¡Œæ“ä½œ
+                        %ç”Ÿæˆæ–°çš„èœœæº
                         for j = 1:n
                             PHI = rand();
                             if(rand()>0.5)
@@ -186,7 +186,7 @@ for problem = 1
                             end
                             newSolution(j) = solution(i,j) + PHI * ( solution(i,j) - solution(k,j) );
                         end
-                        %ÆÀ¹À¾ÉµÄºÍĞÂµÄÃÛÔ´£¬Ì°ĞÄÑ¡Ôñ
+                        %è¯„ä¼°æ—§çš„å’Œæ–°çš„èœœæºï¼Œè´ªå¿ƒé€‰æ‹©
                         result = benchmark_func(solution(i,1:n), problem, o, A, M, a, alpha, b);
                         newResult = benchmark_func(newSolution, problem, o, A, M, a, alpha, b);
                         if result>=0
@@ -206,12 +206,12 @@ for problem = 1
                             fitness(i) = newFit;
                             trial(i) = 0;
                         end
-                    %¶ÔÓ¦Õâ¸öÃÛÔ´£¨½â£©µÄÃÛ·äÊÇÕì²é·ä
+                    %å¯¹åº”è¿™ä¸ªèœœæºï¼ˆè§£ï¼‰çš„èœœèœ‚æ˜¯ä¾¦æŸ¥èœ‚
                     case 3
                         for food = 1:foodCount
-                            %Èç¹ûÄ³¸öÃÛÔ´µÄÎ´¸ÄÉÆ¼ÆÊı³¬¹ıÁËÉÏÏŞ
+                            %å¦‚æœæŸä¸ªèœœæºçš„æœªæ”¹å–„è®¡æ•°è¶…è¿‡äº†ä¸Šé™
                             if trial(food) > limit
-                                %¶ªÆúÔ­À´µÄÃÛÔ´i£¬Ëæ»ú²úÉúĞÂÃÛÔ´
+                                %ä¸¢å¼ƒåŸæ¥çš„èœœæºiï¼Œéšæœºäº§ç”Ÿæ–°èœœæº
                                 newSolution = ones(1,n);
                                 for j = 1:n
                                     max = solution(food,j);
@@ -235,9 +235,9 @@ for problem = 1
         benchmarkResultSum = benchmarkResultSum + benchmarkResult(testBenchmarkTime);
     end
     
-    disp('µü´ú´ÎÊı=');
+    disp('è¿­ä»£æ¬¡æ•°=');
     disp(totalTime);
-    disp('×î´óÖµ=');
+    disp('æœ€å¤§å€¼=');
     temp = benchmarkResult(1);
     for i = 1:totalTestBenchmarkTime
         if temp<benchmarkResult(i)
@@ -245,7 +245,7 @@ for problem = 1
         end
     end
     disp(temp);
-    disp('×îĞ¡Öµ=');
+    disp('æœ€å°å€¼=');
     temp = benchmarkResult(1);
     for i = 1:totalTestBenchmarkTime
         if temp>benchmarkResult(i)
@@ -253,13 +253,13 @@ for problem = 1
         end
     end
     disp(temp);
-    disp('Æ½¾ùÖµ=');
+    disp('å¹³å‡å€¼=');
     disp(benchmarkResultSum/totalTestBenchmarkTime);
-    disp('±ê×¼²î=');
+    disp('æ ‡å‡†å·®=');
     disp(std(benchmarkResult));
 end
 
 toc
 
-%½áÊø´òÓ¡
+%ç»“æŸæ‰“å°
 diary

@@ -31,7 +31,7 @@ else  fhd=str2func('basic_penalized2');    %[-50,50]
 
 end
 
-f = feval(fhd, x, o, A, M, a, alpha, b);%feval是函数句柄，这句的意思是 f = fhd( x, o, A, M, a, alpha, b)
+f = feval(fhd, x, o, A, M, a, alpha, b);%feval鏄嚱鏁板彞鏌勶紝杩欏彞鐨勬剰鎬濇槸 f = fhd( x, o, A, M, a, alpha, b)
 
 
 
